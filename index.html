@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').then(() => {
+            console.log("Service Worker Registered!");
+        });
+    }
+</script>
+
+</head>
+<body>
+    <header>
+        <h1>My E-commerce Store</h1>
+        <nav>
+            <a href="#products">Products</a>
+            <a href="#cart">Cart</a>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Product List -->
+        <section id="products">
+            <h2>Our Products</h2>
+            <div class="product">
+                <h3>Product 1</h3>
+                <p>Price: $10</p>
+                <button onclick="addToCart('Product 1', 10)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <h3>Product 2</h3>
+                <p>Price: $15</p>
+                <button onclick="addToCart('Product 2', 15)">Add to Cart</button>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart">
+            <h2>Your Cart</h2>
+            <ul id="cart-items"></ul>
+            <p>Total: $<span id="total-price">0</span></p>
+            <!-- PayPal Payment Button -->
+            <div id="paypal-button-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 My E-commerce Store</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
